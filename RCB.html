@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./../../bootstrap-5.3.6-dist/css/bootstrap.css">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+       
+
+
+        .bg-danger, .card-footer, .card-header {
+            background: linear-gradient(35deg, rgb(79, 47, 58), rgb(255, 0, 0));
+        }
+
+        img {
+            width: 100% !important;
+            height: 200px !important;
+        }
+
+        .card-body {
+            background-color: rgb(192, 166, 52);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-danger">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">🏆 R C B 🏆</a>
+        </div>
+    </nav>
+
+    <section class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://assets.iplt20.com/ipl/IPLHeadshot2022/164.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="card-body text-center">
+                        <h4 class="text-danger">Virat Kohli</h4>
+                        <h2>18</h2>
+
+                        <button class="btn btn-danger" onclick="dislike()">l
+                            <i class="fa-solid fa-thumbs-down"></i>
+                            <span id="dis_like"></span>
+                        </button>
+
+                        <button class="btn btn-success" onclick="like()">
+                            <i class="fa-solid fa-thumbs-up"></i>
+                            <span id="li_ke"></span>
+                        </button>
+                    </div>
+                    <div class="card-footer text-white">
+                        <h4>Likes & Dislikes : <span id="total">110</span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let a = document.getElementById("dis_like");
+        let b = localStorage.getItem('b') ? parseInt(localStorage.getItem('b')) : 1;
+        a.textContent = b;
+
+        let c = document.getElementById("li_ke");
+        let d = localStorage.getItem('d') ? parseInt(localStorage.getItem('d')) : 1;
+        c.textContent = d;
+
+        let totalElement = document.getElementById("total");
+        totalElement.textContent = b + d;
+
+        function like() {
+            d++;
+            localStorage.setItem('d', d);
+            c.textContent = d;
+            totalElement.textContent = b + d;
+        }
+
+        function dislike() {
+            b++;
+            localStorage.setItem('b', b);
+            a.textContent = b;
+            totalElement.textContent = b + d;
+        }
+    </script>
+
+    <footer style="margin-bottom: 10px;"></footer>
+</body>
+</html>
